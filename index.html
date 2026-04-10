@@ -137,6 +137,43 @@
             border-bottom-color: var(--color-link);
         }
 
+        .writing-list {
+            list-style: none;
+        }
+
+        .writing-list li {
+            margin-bottom: 18px;
+        }
+
+        .writing-list a {
+            display: block;
+            color: var(--color-text);
+            text-decoration: none;
+            padding: 16px 20px;
+            border: 1px solid var(--color-rule);
+            transition: border-color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .writing-list a:hover {
+            border-color: var(--color-accent);
+            background-color: var(--color-accent-light);
+        }
+
+        .writing-title {
+            display: block;
+            font-family: var(--font-serif);
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+            color: var(--color-link);
+        }
+
+        .writing-desc {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+        }
+
         .arrow {
             font-size: 0.85em;
             opacity: 0.5;
@@ -188,6 +225,26 @@
             <p class="book-title">Zen and the Art of Technical Writing</p>
             <p>Currently writing a book about the craft, principles, and mindset behind making complex ideas clear.</p>
         </div>
+
+        <hr class="rule">
+
+        <section class="writing">
+            <h2 class="links-heading">Writing</h2>
+            <ul class="writing-list">
+                <li>
+                    <a href="/living-room.html">
+                        <span class="writing-title">"We can't paint the living room, we can't afford a plumber."</span>
+                        <span class="writing-desc">On scope creep, paralysis, and the value of incremental progress.</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/informal-writing.html">
+                        <span class="writing-title">Casual versus informal writing</span>
+                        <span class="writing-desc">Why the opposite of stuffy isn't breezy — it's clear.</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
 
         <hr class="rule">
 
