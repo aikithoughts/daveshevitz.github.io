@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dave Shevitz — Writer, Strategist, Problem Solver</title>
+    <meta name="description" content="Dave Shevitz is a communications strategist and writer with 25 years of experience shaping content at Google, Amazon, Stripe, and Microsoft.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-bg: #faf9f6;
+            --color-text: #2c2c2c;
+            --color-text-light: #5a5a5a;
+            --color-accent: #1a4a3a;
+            --color-accent-light: #e8f0ec;
+            --color-rule: #d4d0c8;
+            --color-link: #1a4a3a;
+            --color-link-hover: #0d2e24;
+            --font-serif: 'Newsreader', Georgia, serif;
+            --font-sans: 'Source Sans 3', -apple-system, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            font-weight: 300;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            line-height: 1.7;
+            font-size: 17px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 80px 24px 60px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 48px 20px 40px;
+            }
+        }
+
+        .name {
+            font-family: var(--font-serif);
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            color: var(--color-text);
+            margin-bottom: 6px;
+        }
+
+        .tagline {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--color-text-light);
+            margin-bottom: 40px;
+        }
+
+        .rule {
+            border: none;
+            border-top: 1px solid var(--color-rule);
+            margin: 36px 0;
+        }
+
+        .bio p {
+            margin-bottom: 18px;
+            color: var(--color-text);
+        }
+
+        .bio p:last-child {
+            margin-bottom: 0;
+        }
+
+        .bio strong {
+            font-weight: 600;
+        }
+
+        .book {
+            background: var(--color-accent-light);
+            border-left: 3px solid var(--color-accent);
+            padding: 20px 24px;
+            margin: 36px 0;
+        }
+
+        .book-title {
+            font-family: var(--font-serif);
+            font-weight: 600;
+            font-style: italic;
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+            color: var(--color-accent);
+        }
+
+        .book p {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            line-height: 1.6;
+        }
+
+        .links-heading {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 14px;
+            color: var(--color-text);
+        }
+
+        .link-list {
+            list-style: none;
+        }
+
+        .link-list li {
+            margin-bottom: 10px;
+        }
+
+        .link-list a {
+            color: var(--color-link);
+            text-decoration: none;
+            font-weight: 400;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .link-list a:hover {
+            border-bottom-color: var(--color-link);
+        }
+
+        .arrow {
+            font-size: 0.85em;
+            opacity: 0.5;
+            margin-left: 2px;
+        }
+
+        .contact {
+            margin-top: 0;
+        }
+
+        .contact a {
+            color: var(--color-link);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .contact a:hover {
+            border-bottom-color: var(--color-link);
+        }
+
+        footer {
+            margin-top: 48px;
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="name">Dave Shevitz</h1>
+        <p class="tagline">Writer, strategist, problem solver</p>
+
+        <hr class="rule">
+
+        <section class="bio">
+            <p>
+                I make complex things clear. For 25 years, I've helped organizations communicate with precision and purpose — shaping content strategy, executive communications, and editorial programs at companies where clarity isn't optional.
+            </p>
+            <p>
+                At <strong>Amazon</strong>, I develop content strategy for a global engineering audience, shape strategic communications for senior leadership, and lead high-visibility content programs. At <strong>Google</strong>, I spent seven years leading documentation across multiple products — from <strong>Angular</strong> (serving 1.6 million developers) to Cloud TPU, BigQuery, and a 15-project internal portfolio — and grew into a Tech Lead/Manager role defining cross-organizational strategy. At <strong>Stripe</strong>, I led both people and content initiatives, driving editorial quality and scaling documentation output. I've also created developer content programs at <strong>Microsoft</strong> and shaped content strategy at organizations from startups to the Fortune 5.
+            </p>
+            <p>
+                Across every role, the work comes down to the same thing: understanding what needs to be said, who needs to hear it, and how to make it land. Whether the audience is a VP, a million developers, or a global community — the craft is the same.
+            </p>
+        </section>
+
+        <div class="book">
+            <p class="book-title">Zen and the Art of Technical Writing</p>
+            <p>Currently writing a book about the craft, principles, and mindset behind making complex ideas clear.</p>
+        </div>
+
+        <hr class="rule">
+
+        <section class="links">
+            <h2 class="links-heading">Elsewhere</h2>
+            <ul class="link-list">
+                <li>
+                    <a href="https://www.linkedin.com/in/david-shevitz-106aa6/" target="_blank" rel="noopener">
+                        LinkedIn <span class="arrow">→</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/aikithoughts" target="_blank" rel="noopener">
+                        GitHub <span class="arrow">→</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <hr class="rule">
+
+        <section class="contact">
+            <p>Get in touch: <a href="mailto:dave@daveshevitz.com">dave@daveshevitz.com</a></p>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Dave Shevitz</p>
+        </footer>
+
+    </div>
+</body>
+</html>
