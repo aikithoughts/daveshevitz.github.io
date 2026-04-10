@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We can't paint the living room — Dave Shevitz</title>
+    <meta name="description" content="On the paralysis of scope creep, and why it's okay to make incremental progress.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-bg: #faf9f6;
+            --color-text: #2c2c2c;
+            --color-text-light: #5a5a5a;
+            --color-accent: #1a4a3a;
+            --color-accent-light: #e8f0ec;
+            --color-rule: #d4d0c8;
+            --color-link: #1a4a3a;
+            --color-link-hover: #0d2e24;
+            --font-serif: 'Newsreader', Georgia, serif;
+            --font-sans: 'Source Sans 3', -apple-system, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            font-weight: 300;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            line-height: 1.7;
+            font-size: 17px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 80px 24px 60px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 48px 20px 40px;
+            }
+        }
+
+        .back {
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+        }
+
+        .back a {
+            color: var(--color-link);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .back a:hover {
+            border-bottom-color: var(--color-link);
+        }
+
+        .article-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: var(--color-text);
+            margin-bottom: 8px;
+        }
+
+        .article-subtitle {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--color-text-light);
+            margin-bottom: 36px;
+        }
+
+        .rule {
+            border: none;
+            border-top: 1px solid var(--color-rule);
+            margin: 36px 0;
+        }
+
+        .article p {
+            margin-bottom: 18px;
+        }
+
+        .article strong {
+            font-weight: 600;
+        }
+
+        .article em {
+            font-style: italic;
+        }
+
+        .story {
+            border-left: 3px solid var(--color-rule);
+            padding-left: 24px;
+            margin: 32px 0;
+        }
+
+        .story p {
+            margin-bottom: 14px;
+        }
+
+        .story p:last-child {
+            margin-bottom: 0;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 36px 0;
+            color: var(--color-text-light);
+            letter-spacing: 0.3em;
+        }
+
+        ol {
+            margin: 18px 0 18px 24px;
+            color: var(--color-text);
+        }
+
+        ol li {
+            margin-bottom: 10px;
+            padding-left: 4px;
+        }
+
+        footer {
+            margin-top: 48px;
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="back">
+            <a href="/">← Dave Shevitz</a>
+        </div>
+
+        <h1 class="article-title">"We can't paint the living room, we can't afford a plumber."</h1>
+        <p class="article-subtitle">On scope creep, paralysis, and the value of incremental progress</p>
+
+        <hr class="rule">
+
+        <article class="article">
+            <div class="story">
+                <p>
+                    Some time back, I was visiting a couple of friends of mine. They had just purchased a new house and were eager to show it off. We had a lovely dinner, then sat in their living room drinking coffee and chatting.
+                </p>
+                <p>
+                    "I love your house," I said.
+                </p>
+                <p>
+                    "Thanks!" they replied. "We do too. We just don't like the color they painted the living room."
+                </p>
+                <p>
+                    "Well that's an easy fix," my wife replied. "Just take a weekend and repaint!"
+                </p>
+                <p>
+                    "Oh. We can't paint the living room," they answered.
+                </p>
+                <p>
+                    My wife and I looked at each other. "Why not?" I asked, finally.
+                </p>
+                <p>
+                    "Because there are parts of the walls that need to be patched," they responded.
+                </p>
+                <p>
+                    "Okay," I said. "That's just getting some putty or a little drywall repair. That shouldn't stop you from painting."
+                </p>
+                <p>
+                    "Well, no," they admitted. "But if we're going to repair the drywall, we might as well move some electrical plugs around."
+                </p>
+                <p>
+                    I thought for a moment. "Rewiring does make things a little harder," I said. "But not impossible. And probably something you can do if you want!"
+                </p>
+                <p>
+                    "Yeah, but we can't do the electrical," they continued.
+                </p>
+                <p>
+                    I looked at them. "And," I said carefully, "why can't you do the electrical?"
+                </p>
+                <p>
+                    "Because!" they said. "If we're going to do the electrical, we should make some changes to the plumbing. And we just can't afford a plumber right now!"
+                </p>
+            </div>
+
+            <p class="divider">* * *</p>
+
+            <p>
+                I think of this story frequently when I'm working on documentation. It's far too easy for me, sometimes, to think about the big picture. How will this solution scale? What is the long range impact of this decision? These are good questions to ask, for sure. But they also can prevent me from making progress.
+            </p>
+
+            <p>
+                I'll give an example. One project I worked on was the Angular JavaScript Framework. When I joined the team, the documentation had been left untended for a considerable period of time. As I was reading through the various topics, I saw all sorts of ways we could make the content easier to read and easier to discover.
+            </p>
+
+            <p>
+                But I also started falling into an issue similar to my friend's painting dilemma. If I was going to edit topics to remove passive voice, for example, then I should probably look at restructuring the topic to make the content easier to skim. And if I was going to restructure the content at a topic level, I should look at updating the information architecture across the board — and that's just a monumental undertaking!
+            </p>
+
+            <p>
+                Fortunately, I had a great mentor who reminded me that we didn't have to always get everything done all at once. So, I thought about the issue some more and decided on the following process:
+            </p>
+
+            <ol>
+                <li>Categorize the topics based on pageviews, which we used as a proxy for the popularity of the topic.</li>
+                <li>Ensure that, for every block of work, we were updating a few topics to improve the writing clarity.</li>
+                <li>If, to support a new feature, we needed to update a topic, we'd take the opportunity to improve the writing for the entire topic.</li>
+                <li>If, at any time, we had customer feedback about a topic that required immediate action, we'd improve the writing for the topic, as opposed to just fixing the bug.</li>
+            </ol>
+
+            <p>
+                This policy still meant that, sooner or later, we'd have to do other work to refactor and improve the docs, but we at least ensured incremental progress across the board.
+            </p>
+
+            <p>
+                And yes, I knew that this process meant that, later, we might end up completely gutting a section that we had just edited. But I figured the tradeoff was worth it. Better to have incremental progress that you occasionally have to undo, than to make no progress at all.
+            </p>
+
+            <p>
+                I still try to think big when it comes to documentation. But I also try to remind myself that it's okay to paint the living room even if I can't afford a plumber.
+            </p>
+        </article>
+
+        <hr class="rule">
+
+        <footer>
+            <p>&copy; 2026 Dave Shevitz</p>
+        </footer>
+    </div>
+</body>
+</html>
