@@ -18,3 +18,4 @@ HOW THIS WORKS
 - A clean git commit after a messy afternoon
 - The bow at the start of aikido practice
 - A guitar chord that rings out exactly right
+- Playing D&D with my friends
