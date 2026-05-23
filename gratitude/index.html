@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Today, I'm grateful for…</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,400&family=Newsreader:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --ink: #2b2722;
+    --muted: #8a8174;
+    --accent: #6b7d5a;
+    --paper: #fbf9f4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body { height: 100%; }
+
+  body {
+    background: var(--bg);
+    background-image:
+      radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.6), transparent 55%),
+      radial-gradient(ellipse at 80% 90%, rgba(107,125,90,0.08), transparent 50%);
+    color: var(--ink);
+    font-family: "Newsreader", Georgia, serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .card {
+    max-width: 40rem;
+    width: 100%;
+    text-align: center;
+    padding: 3.5rem 2rem;
+    animation: rise 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .eyebrow {
+    font-family: "Newsreader", serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.6rem;
+    animation: fade 1.4s ease 0.2s both;
+  }
+
+  .entry {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 300;
+    font-size: clamp(1.9rem, 5.5vw, 3.1rem);
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 2.4rem;
+    text-wrap: balance;
+  }
+
+  .entry::before { content: "\201C"; color: var(--accent); opacity: 0.5; }
+  .entry::after  { content: "\201D"; color: var(--accent); opacity: 0.5; }
+
+  .controls {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    align-items: center;
+    animation: fade 1.4s ease 0.5s both;
+  }
+
+  button {
+    font-family: "Newsreader", serif;
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid rgba(43,39,34,0.15);
+    border-radius: 999px;
+    padding: 0.6rem 1.4rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+
+  button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(43,39,34,0.08);
+    background: #fff;
+  }
+
+  button:active { transform: translateY(0); }
+
+  .footer {
+    position: fixed;
+    bottom: 1.4rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    animation: fade 1.4s ease 0.8s both;
+  }
+
+  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+</style>
+</head>
+<body>
+  <main class="card">
+    <p class="eyebrow">Today, I'm grateful for</p>
+    <p class="entry" id="entry">…</p>
+    <div class="controls">
+      <button id="again">Show me another</button>
+    </div>
+  </main>
+  <p class="footer" id="footer"></p>
+
+<script>
+// Fallback list: used only if gratitude.md can't be loaded
+// (e.g. when you double-click this file directly on your computer).
+// When this page is hosted on a real site, it reads gratitude.md instead.
+const FALLBACK = [
+  "A quiet morning before anyone else is awake",
+  "Trail miles where my legs just feel good",
+  "Finishing a paragraph that finally says what I meant",
+  "A clean git commit after a messy afternoon"
+];
+
+function parseEntries(text) {
+  // Keep only lines that start with "- ", strip the dash, ignore the rest.
+  return text
+    .split("\n")
+    .map(line => line.trim())
+    .filter(line => line.startsWith("- "))
+    .map(line => line.slice(2).trim())
+    .filter(line => line.length > 0);
+}
+
+function pickRandom(list) {
+  return list[Math.floor(Math.random() * list.length)];
+}
+
+let entries = FALLBACK;
+let source = "fallback";
+
+const entryEl = document.getElementById("entry");
+const footerEl = document.getElementById("footer");
+const againBtn = document.getElementById("again");
+
+function show() {
+  // Fade out, swap, fade in — gentle.
+  entryEl.style.opacity = 0;
+  setTimeout(() => {
+    entryEl.textContent = pickRandom(entries);
+    entryEl.style.transition = "opacity 0.6s ease";
+    entryEl.style.opacity = 1;
+  }, 250);
+}
+
+againBtn.addEventListener("click", show);
+
+// Try to load the real list. If the browser blocks it (local file), we keep FALLBACK.
+fetch("gratitude.md")
+  .then(res => {
+    if (!res.ok) throw new Error("not found");
+    return res.text();
+  })
+  .then(text => {
+    const parsed = parseEntries(text);
+    if (parsed.length > 0) {
+      entries = parsed;
+      source = "file";
+    }
+  })
+  .catch(() => { /* keep fallback silently */ })
+  .finally(() => {
+    entryEl.textContent = pickRandom(entries);
+    entryEl.style.opacity = 1;
+    footerEl.textContent = source === "file"
+      ? entries.length + " things and counting"
+      : "Showing a few defaults — add your own in gratitude.md";
+  });
+</script>
+</body>
+</html>
