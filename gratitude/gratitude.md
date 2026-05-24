@@ -19,3 +19,4 @@ HOW THIS WORKS
 - The bow at the start of aikido practice
 - A guitar chord that rings out exactly right
 - Playing D&D with my friends
+- Having a dog snuggle with me on the couch
