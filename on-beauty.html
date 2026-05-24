@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On beauty — Dave Shevitz</title>
+    <meta name="description" content="What happens when you stop trying to just build something useful and start trying to make something beautiful?">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-bg: #faf9f6;
+            --color-text: #2c2c2c;
+            --color-text-light: #5a5a5a;
+            --color-accent: #1a4a3a;
+            --color-accent-light: #e8f0ec;
+            --color-rule: #d4d0c8;
+            --color-link: #1a4a3a;
+            --color-link-hover: #0d2e24;
+            --font-serif: 'Newsreader', Georgia, serif;
+            --font-sans: 'Source Sans 3', -apple-system, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            font-weight: 300;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            line-height: 1.7;
+            font-size: 17px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 80px 24px 60px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 48px 20px 40px;
+            }
+        }
+
+        .back {
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+        }
+
+        .back a {
+            color: var(--color-link);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .back a:hover {
+            border-bottom-color: var(--color-link);
+        }
+
+        .article-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: var(--color-text);
+            margin-bottom: 8px;
+        }
+
+        .article-subtitle {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--color-text-light);
+            margin-bottom: 36px;
+        }
+
+        .rule {
+            border: none;
+            border-top: 1px solid var(--color-rule);
+            margin: 36px 0;
+        }
+
+        .article p {
+            margin-bottom: 18px;
+        }
+
+        .article strong {
+            font-weight: 600;
+        }
+
+        .article em {
+            font-style: italic;
+        }
+
+        .article a {
+            color: var(--color-link);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .article a:hover {
+            border-bottom-color: var(--color-link);
+        }
+
+        .standalone {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--color-text-light);
+            margin: 32px 0;
+        }
+
+        footer {
+            margin-top: 48px;
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="back">
+            <a href="/">← Dave Shevitz</a>
+        </div>
+
+        <h1 class="article-title">On beauty</h1>
+        <p class="article-subtitle">What if the goal wasn't to build something useful, but something beautiful?</p>
+
+        <hr class="rule">
+
+        <article class="article">
+            <p>
+                The founder of a small startup I worked at once told me something that's been on my mind a lot lately.
+            </p>
+
+            <p>
+                "I don't think of myself as a software developer," he said. "I think of myself as an artist. My goal isn't to write code; it's to create."
+            </p>
+
+            <p>
+                As I continue to explore how to write code with AI, I find myself returning to this idea. I am, after all, not a "software developer" per se. While I've written many code examples and constructed numerous tools and utilities for my own use, I reserve the title for those who not only build things, but are responsible for keeping those things running. Perhaps my definition is too strict, but that's a subject for another time.
+            </p>
+
+            <p>
+                With tools like Kiro, Claude Code, and Codex making it easier for anyone to code, I began to think: what if instead of focusing on just building something, I focused on making something beautiful and elegant? Or, at the very least, whimsical? The idea appeals to me, because so often when I used to write a hello world app, or yet another TODO application, I found myself looking at the output and thinking: <em>It may work, but it's ugly. I would never use this.</em>
+            </p>
+
+            <p>
+                My first attempt to play with this idea was Cotev, a simple writing interface.
+            </p>
+
+            <p>
+                There's nothing remarkable about Cotev. It's a markdown editor, using TipTap and ProseMirror and a few other things. Not too different from any other markdown editor.
+            </p>
+
+            <p>
+                Except that I tried to make it whimsical. Fun. Maybe even beautiful.
+            </p>
+
+            <p>
+                Cotev currently has four writing modes. The first, Plain, is just what you'd expect: a simple markdown editor. Then there's Autumn, where the letters fly in like leaves blowing in on the wind. Next is Rain, where the letters fall down like raindrops as you type. And last is Starry, where each letter bursts into a night sky filled with winking stars.
+            </p>
+
+            <p>
+                There's nothing practical about any of this, or so it seems. But it makes the writing interesting, and maybe a little fun. More importantly, it's showing me that I'm not limited by what I understand of syntax. The Autumn mode uses random bezier curves to control how the leaves flow onto the screen. The rain drops have a little splash when each letter lands. I could look these things up, and I know enough to do this code myself. But it would take time, and while struggling with just getting the application to work, I might lose sight of what I was trying to do.
+            </p>
+
+            <p class="standalone">Create.</p>
+
+            <p>
+                You're welcome to give Cotev a try. You can find it at <a href="https://cotev.daveshevitz.com">cotev.daveshevitz.com</a>. When you arrive, click "Try without signing in" to jump straight into the editor. It's very rough around the edges, but try it and you might see what I'm trying to do.
+            </p>
+        </article>
+
+        <hr class="rule">
+
+        <footer>
+            <p>&copy; 2026 Dave Shevitz</p>
+        </footer>
+    </div>
+</body>
+</html>
