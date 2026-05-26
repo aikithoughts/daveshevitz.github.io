@@ -21,3 +21,4 @@ HOW THIS WORKS
 - Playing D&D with my friends
 - Having a dog snuggle with me on the couch
 - Watching the Lord of the Rings trilogy with Jakob
+- The smell of rain in the spring
