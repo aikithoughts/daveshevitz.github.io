@@ -12,7 +12,6 @@ HOW THIS WORKS
 - The smell of coffee starting to brew
 - Trail miles where my legs just feel good
 - My sons laughing at something dumb together
-- Jen's hand on my shoulder when I'm in my head
 - The particular silence of fresh snow
 - Finishing a paragraph that finally says what I meant
 - A clean git commit after a messy afternoon
@@ -22,3 +21,4 @@ HOW THIS WORKS
 - Having a dog snuggle with me on the couch
 - Watching the Lord of the Rings trilogy with Jakob
 - The smell of rain in the spring
+- My home office with my own chair
