@@ -22,3 +22,4 @@ HOW THIS WORKS
 - Watching the Lord of the Rings trilogy with Jakob
 - The smell of rain in the spring
 - My home office with my own chair
+- The sun shining at 6:00am on a June morning
