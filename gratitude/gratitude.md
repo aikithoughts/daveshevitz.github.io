@@ -24,3 +24,4 @@ HOW THIS WORKS
 - My home office with my own chair
 - The sun shining at 6:00am on a June morning
 - Coffee with a good friend
+- Coaching a great Let Me Run team
