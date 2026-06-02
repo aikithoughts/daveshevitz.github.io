@@ -27,3 +27,4 @@ HOW THIS WORKS
 - Coaching a great Let Me Run team
 - Running shoes that work for my feet
 - Great Jazz music
+- Laughing at a dumb joke with a friend
