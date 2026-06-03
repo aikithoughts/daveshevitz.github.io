@@ -28,3 +28,4 @@ HOW THIS WORKS
 - Running shoes that work for my feet
 - Great Jazz music
 - Laughing at a dumb joke with a friend
+- Challenging projects that require my expertise
