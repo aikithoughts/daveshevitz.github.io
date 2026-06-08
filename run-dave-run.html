@@ -121,6 +121,62 @@
             margin: 32px 0;
         }
 
+        .example {
+            background: var(--color-accent-light);
+            border-left: 3px solid var(--color-accent);
+            padding: 16px 24px;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .example p {
+            margin-bottom: 8px;
+        }
+
+        .example p:last-child {
+            margin-bottom: 0;
+        }
+
+        .example .label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-accent);
+            margin-bottom: 6px;
+        }
+
+        .story {
+            border-left: 3px solid var(--color-rule);
+            padding-left: 24px;
+            margin: 32px 0;
+        }
+
+        .story p {
+            margin-bottom: 14px;
+        }
+
+        .story p:last-child {
+            margin-bottom: 0;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 36px 0;
+            color: var(--color-text-light);
+            letter-spacing: 0.3em;
+        }
+
+        ol {
+            margin: 18px 0 18px 24px;
+            color: var(--color-text);
+        }
+
+        ol li {
+            margin-bottom: 10px;
+            padding-left: 4px;
+        }
+
         footer {
             margin-top: 48px;
             font-size: 0.85rem;
@@ -137,83 +193,18 @@
         <h1 class="article-title">Run, Dave, Run!</h1>
         <p class="article-subtitle">On falling down, getting up, and shipping anyway.</p>
 
-
         <hr class="rule">
 
         <article class="article">
-            <p>
-                A couple of years ago, I was running the Ragnar Relay: Northwest Passage. This is a 200-ish mile relay race that
-                starts up in Blaine, WA and finishes in Langley, WA.  The standard Ragnar Road Relay consists of a team of 12 runners,
-                split into two vans. The total distance is split between all 12 runners, with each runner running 3 legs. It's a fun time,
-                made all the more so when you have a great group of people to run with, which I did.
-            </p>
-
-            <p>
-                I was just starting my second leg, which was about 6 miles long. It was the worst time of day for me to see--twilight. I started
-                my leg, made it about a quarter of the mile, and totally tripped on the sidewalk. Skinned up my leg and forearm something fierce.
-                I had decided (stupidly) to NOT wear my glasses, and I couldn't see my phone, so I could barely text my team: "Fell down." Which,
-                of course, made them panic until they eventually found me. (I was mostly fine, and finished the race without issue.)
-            </p>
-
-            <p>
-                That was a few years ago, and now I'm facing my first ultramarathon in about 2 weeks. This is a 62 mile run and is by far the longest
-                distance I've ever run. I'm excited, but I know the risks. And I thought: I'll have my phone, but it would be great to have a way
-                to communicate with my support crew if I need to. Something easy, like a set of buttons that shared if I was doing well, needed water,
-                or (worst case), needed help.
-            </p>
-
-            <p>
-                Tonight, I decided to build that app myself. The app is, understandably, called "Run, Dave, Run!" You can check it out
-                at <a href="https://rundaverun.daveshevitz.com">rundaverun.daveshevitz.com</a>, and the code is all open source
-                at <a href="https://github.com/aikithoughts/rundaverun">github.com/aikithoughts/rundaverun</a>. The stack is
-                Next.js with TypeScript, MongoDB for storing check-ins and status updates, Leaflet for the map, and Vercel for hosting.
-                TypeScript is somewhat new to me. I know JavaScript pretty well, but TypeScript's type system is something I've been meaning to
-                get more comfortable with. This felt like a good excuse.
-            </p>
-
-            <p>
-                The app works pretty simply. The main page is a supporter view where folks can watch my progress on a live map. For me,
-                there's a runner's page that requires a PIN to access. When I'm on the runner page, I can tap to check in at named
-                checkpoints along the course, and I can tap a status button to let anyone tracking me know what's going on—or, if
-                things go sideways, hit the SOS button.
-            </p>
-
-            <p>
-                I used Claude Code throughout the build, and it did most of the heavy lifting. But it wasn't magic. There were real
-                problems to work through together. Early on, Claude scaffolded the app with Turbopack, which is Next.js's newer bundler.
-                On my machine (running WSL2 on Windows), it consumed all available memory every time I opened the browser. I went back and
-                forth with Claude trying to debug it, trying to see what was happening (and even needing to insist that it WAS happening.)
-                Claude eventually realized what the issue was, and the fix was simple: switch back to webpack, the older and more stable bundler.
-                Yet another lesson about how defaults aren't always right, and how WSL might not be the best environment for me to work in.
-            </p>
-
-            <p>
-                Another interesting technical moment for me was a bug where Mongoose (the library that talks to MongoDB) was accidentally
-                getting bundled for the browser. Mongoose is Node.js-only code; browsers don't have the networking primitives it depends
-                on. The root cause was that my client-side components were importing directly from my database model files, which imported
-                Mongoose. The fix was to pull shared TypeScript types into a separate file with no server-side dependencies, so the browser
-                could use the types without pulling in any Node.js code. I hadn't experienced this issue before with any other app, so
-                this one caught me off guard. But apparently it's a known thing and working through it gave me a much clearer mental model
-                of how Next.js separates client and server code.
-            </p>
-
-            <p>
-                One decision I made deliberately: the supporter view refreshes by polling the server every 15 seconds, rather than using
-                WebSockets for real-time updates. WebSockets would be snappier, but they're also more infrastructure to manage and more
-                surface area for something to break on race day. For a race where check-ins happen every 30-60 minutes, a 15-second delay
-                is completely invisible. I'm still building my real-world coding skills, so the simpler I can keep the app, the easier it
-                is for me to understand and update later.
-            </p>
-
-            <p>
-                I'm well aware that apps like this already exist. But I hadn't found one that worked exactly the way I wanted, and with
-                tools like Claude Code available, I don't need to search for a solution that's 80% right. I can just build the thing I
-                actually need. And, I can learn while I do it. I fell down a lot (metaphorically) building this. I'm not used to memory
-                issues happening, so when my whole machine started freezing up, I had no idea what to do. And I didn't want to reboot, because
-                I was counting on my Claude session to remember what we were doing. But I love the fact that I can try to build something. Each
-                time I do, I learn a little more.
-            </p>
-
+            <p>A couple of years ago, I was running the Ragnar Relay: Northwest Passage. This is a 200-ish mile relay race that starts up in Blaine, WA and finishes in Langley, WA. The standard Ragnar Road Relay consists of a team of 12 runners, split into two vans. The total distance is split between all 12 runners, with each runner running 3 legs. It's a fun time, made all the more so when you have a great group of people to run with, which I did.</p>
+<p>I was just starting my second leg, which was about 6 miles long. It was the worst time of day for me to see — twilight. I started my leg, made it about a quarter of the mile, and totally tripped on the sidewalk. Skinned up my leg and forearm something fierce. I had decided (stupidly) to NOT wear my glasses, and I couldn't see my phone, so I could barely text my team: "Fell down." Which, of course, made them panic until they eventually found me. (I was mostly fine, and finished the race without issue.)</p>
+<p>That was a few years ago, and now I'm facing my first ultramarathon in about 2 weeks. This is a 62 mile run and is by far the longest distance I've ever run. I'm excited, but I know the risks. And I thought: I'll have my phone, but it would be great to have a way to communicate with my support crew if I need to. Something easy, like a set of buttons that shared if I was doing well, needed water, or (worst case), needed help.</p>
+<p>Tonight, I decided to build that app myself. The app is, understandably, called "Run, Dave, Run!" You can check it out at <a href="https://rundaverun.daveshevitz.com">rundaverun.daveshevitz.com</a>, and the code is all open source at <a href="https://github.com/aikithoughts/rundaverun">github.com/aikithoughts/rundaverun</a>. The stack is Next.js with TypeScript, MongoDB for storing check-ins and status updates, Leaflet for the map, and Vercel for hosting. TypeScript is somewhat new to me. I know JavaScript pretty well, but TypeScript's type system is something I've been meaning to get more comfortable with. This felt like a good excuse.</p>
+<p>The app works pretty simply. The main page is a supporter view where folks can watch my progress on a live map. For me, there's a runner's page that requires a PIN to access. When I'm on the runner page, I can tap to check in at named checkpoints along the course, and I can tap a status button to let anyone tracking me know what's going on — or, if things go sideways, hit the SOS button.</p>
+<p>I used Claude Code throughout the build, and it did most of the heavy lifting. But it wasn't magic. There were real problems to work through together. Early on, Claude scaffolded the app with Turbopack, which is Next.js's newer bundler. On my machine (running WSL2 on Windows), it consumed all available memory every time I opened the browser. I went back and forth with Claude trying to debug it, trying to see what was happening (and even needing to insist that it WAS happening.) Claude eventually realized what the issue was, and the fix was simple: switch back to webpack, the older and more stable bundler. Yet another lesson about how defaults aren't always right, and how WSL might not be the best environment for me to work in.</p>
+<p>Another interesting technical moment for me was a bug where Mongoose (the library that talks to MongoDB) was accidentally getting bundled for the browser. Mongoose is Node.js-only code; browsers don't have the networking primitives it depends on. The root cause was that my client-side components were importing directly from my database model files, which imported Mongoose. The fix was to pull shared TypeScript types into a separate file with no server-side dependencies, so the browser could use the types without pulling in any Node.js code. I hadn't experienced this issue before with any other app, so this one caught me off guard. But apparently it's a known thing and working through it gave me a much clearer mental model of how Next.js separates client and server code.</p>
+<p>One decision I made deliberately: the supporter view refreshes by polling the server every 15 seconds, rather than using WebSockets for real-time updates. WebSockets would be snappier, but they're also more infrastructure to manage and more surface area for something to break on race day. For a race where check-ins happen every 30-60 minutes, a 15-second delay is completely invisible. I'm still building my real-world coding skills, so the simpler I can keep the app, the easier it is for me to understand and update later.</p>
+<p>I'm well aware that apps like this already exist. But I hadn't found one that worked exactly the way I wanted, and with tools like Claude Code available, I don't need to search for a solution that's 80% right. I can just build the thing I actually need. And, I can learn while I do it. I fell down a lot (metaphorically) building this. I'm not used to memory issues happening, so when my whole machine started freezing up, I had no idea what to do. And I didn't want to reboot, because I was counting on my Claude session to remember what we were doing. But I love the fact that I can try to build something. Each time I do, I learn a little more.</p>
         </article>
 
         <hr class="rule">
