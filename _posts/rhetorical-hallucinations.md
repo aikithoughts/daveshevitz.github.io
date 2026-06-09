@@ -1,7 +1,7 @@
 ---
 title: "On rhetorical hallucinations"
-subtitle: "Why AI's most dangerous writing failures aren't factual errors — they're convincing nonsense"
-description: "AI is indispensable and yet profoundly bad at certain writing. Here's why."
+subtitle: "AI is really powerful. It's also really powerful at creating compelling nonsense."
+description: "AI is indispensable and yet profoundly bad at certain types of writing. My thoughts on why."
 slug: rhetorical-hallucinations
 date: 2026-06-07
 ---
