@@ -1,7 +1,7 @@
 ---
 title: "Run, Dave, Run!"
 subtitle: "On falling down, getting up, and shipping anyway."
-description: "What happens when you stop trying to just build something useful and start trying to make something beautiful?"
+description: "Writing single-use apps in the age of AI"
 slug: run-dave-run
 date: 2026-05-29
 ---
@@ -16,10 +16,21 @@ Tonight, I decided to build that app myself. The app is, understandably, called 
 
 The app works pretty simply. The main page is a supporter view where folks can watch my progress on a live map. For me, there's a runner's page that requires a PIN to access. When I'm on the runner page, I can tap to check in at named checkpoints along the course, and I can tap a status button to let anyone tracking me know what's going on — or, if things go sideways, hit the SOS button.
 
-I used Claude Code throughout the build, and it did most of the heavy lifting. But it wasn't magic. There were real problems to work through together. Early on, Claude scaffolded the app with Turbopack, which is Next.js's newer bundler. On my machine (running WSL2 on Windows), it consumed all available memory every time I opened the browser. I went back and forth with Claude trying to debug it, trying to see what was happening (and even needing to insist that it WAS happening.) Claude eventually realized what the issue was, and the fix was simple: switch back to webpack, the older and more stable bundler. Yet another lesson about how defaults aren't always right, and how WSL might not be the best environment for me to work in.
+Now, I admit I'm not a professional developer. In my career as a content strategist and developer documentation writer, I have written a lot of code. But most of that code has been examples or snippets. Rarely have I needed to create a full-fledged app. Nonetheless, I know enough about app development that, when building RunDaveRun, I found myself thinking:
 
-Another interesting technical moment for me was a bug where Mongoose (the library that talks to MongoDB) was accidentally getting bundled for the browser. Mongoose is Node.js-only code; browsers don't have the networking primitives it depends on. The root cause was that my client-side components were importing directly from my database model files, which imported Mongoose. The fix was to pull shared TypeScript types into a separate file with no server-side dependencies, so the browser could use the types without pulling in any Node.js code. I hadn't experienced this issue before with any other app, so this one caught me off guard. But apparently it's a known thing and working through it gave me a much clearer mental model of how Next.js separates client and server code.
+- What should I do about authentication and authorization?
+- How should I handle errors?
+- What sort of testing framework should I use?
+- How should I support multiple races? Multiple users?
 
-One decision I made deliberately: the supporter view refreshes by polling the server every 15 seconds, rather than using WebSockets for real-time updates. WebSockets would be snappier, but they're also more infrastructure to manage and more surface area for something to break on race day. For a race where check-ins happen every 30-60 minutes, a 15-second delay is completely invisible. I'm still building my real-world coding skills, so the simpler I can keep the app, the easier it is for me to understand and update later.
+Basically, how do I build a professional, shippable app?
 
-I'm well aware that apps like this already exist. But I hadn't found one that worked exactly the way I wanted, and with tools like Claude Code available, I don't need to search for a solution that's 80% right. I can just build the thing I actually need. And, I can learn while I do it. I fell down a lot (metaphorically) building this. I'm not used to memory issues happening, so when my whole machine started freezing up, I had no idea what to do. And I didn't want to reboot, because I was counting on my Claude session to remember what we were doing. But I love the fact that I can try to build something. Each time I do, I learn a little more.
+These questions have, in the past, often led me to just...not code. It's too much work for something that I may not use that much anyway.  But with AI, I don't have to make that choice. I can build RunDaveRun for me. Not only that, I can build it for one race. After my 100k, I don't ever have to use it again if I don't want to.
+
+When I had that realization, the app suddenly didn't seem so hard to build. So I let AI do its work, building out a perfectly functional, perfectly NOT scalable application. And it works! Or, perhaps more accurately, it works well enough for what I need it to do this weekend.
+
+I think the real change here isn't that AI helped me code faster. It's that it changed how I thought about whether to build this at all. Questions about authentication, error handling, testing, and scalability are the right questions if you're building something for a lot of people. I wasn't. I was building something for me. Something I would use for one race and then maybe never again. Before, that kind of project just felt like too much work.
+
+I think AI is opening the door for a new type of app: the single use app. These are apps that you build once, for a particular reason, and then never use again. Building apps like this means you don't have to worry about a whole host of issues, but you do get the benefit that only a software application can provide. In addition, you get more control over your app experience and, perhaps even more importantly, your data. You don't have to care about performance, scalable architectures, or any of those things. Better still, you can always change your mind later. I might decide to use this app again. If I do, it's trivial to hardcode a new race. I wonder how many times I'll do that before I finally decide I want to build something more robust? That day might never come.
+
+We don't have to build for production any more, if we don't need to. We can just build for ourselves.
