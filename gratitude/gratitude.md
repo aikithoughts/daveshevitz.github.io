@@ -33,3 +33,4 @@ HOW THIS WORKS
 - Calian, who is a good dog
 - Ziva, who is a good dog
 - My daughter has grown into an amazing human being
+- There is always hope. Always.
