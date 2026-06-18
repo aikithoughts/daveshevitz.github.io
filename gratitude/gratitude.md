@@ -36,3 +36,4 @@ HOW THIS WORKS
 - There is always hope. Always.
 - The comfort of a good chair
 - Being able to run 39 miles
+- Resilience. Because even when I think I lack it, I don't.
