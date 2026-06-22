@@ -38,3 +38,4 @@ HOW THIS WORKS
 - Being able to run 39 miles
 - Resilience. Because even when I think I lack it, I don't.
 - Fun. Just fun.
+- The warmth of summer.
