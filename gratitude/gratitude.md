@@ -39,3 +39,4 @@ HOW THIS WORKS
 - Resilience. Because even when I think I lack it, I don't.
 - Fun. Just fun.
 - The warmth of summer.
+- Ripe strawberries
