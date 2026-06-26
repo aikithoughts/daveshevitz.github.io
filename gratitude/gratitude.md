@@ -1,4 +1,4 @@
-oh# Things I'm grateful for
+# Things I'm grateful for
 
 <!--
 HOW THIS WORKS
@@ -40,3 +40,4 @@ HOW THIS WORKS
 - Fun. Just fun.
 - The warmth of summer.
 - Ripe strawberries
+- Rain in the summer
