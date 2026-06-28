@@ -41,3 +41,4 @@ HOW THIS WORKS
 - The warmth of summer.
 - Ripe strawberries
 - Rain in the summer
+- The sound of laughter
