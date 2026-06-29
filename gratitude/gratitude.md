@@ -42,3 +42,4 @@ HOW THIS WORKS
 - Ripe strawberries
 - Rain in the summer
 - The sound of laughter
+- Possibilities. Because they always exist.
